@@ -5,7 +5,6 @@ import Map from "@arcgis/core/Map";
 import MapView from '@arcgis/core/views/MapView';
 
 import { MapService } from './services/map/map.service';
-import { ShapefileReaderService } from './services/shapefile-reader/shapefile-reader.service';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +16,6 @@ export class AppComponent {
 
   constructor(
     private mapService: MapService,
-    private shapeFileReaderService: ShapefileReaderService
   ) {
   }
 
@@ -39,6 +37,5 @@ export class AppComponent {
     });
 
     this.mapService.setMapView(map, view);
-    this.shapeFileReaderService.readFile();
   }
 }
