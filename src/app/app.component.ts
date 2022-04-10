@@ -4,6 +4,9 @@ import esriConfig from "@arcgis/core/config";
 import Map from "@arcgis/core/Map";
 import MapView from '@arcgis/core/views/MapView';
 
+import { MapService } from './services/map/map.service';
+import { ShapefileReaderService } from './services/shapefile-reader/shapefile-reader.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,7 +15,10 @@ import MapView from '@arcgis/core/views/MapView';
 export class AppComponent {
   title = 'hazard-display';
 
-  constructor() {
+  constructor(
+    private mapService: MapService,
+    private shapeFileReaderService: ShapefileReaderService
+  ) {
   }
 
   ngOnInit() {
@@ -32,9 +38,7 @@ export class AppComponent {
       }
     });
 
-    view.on("click", (event) => {
-      console.log(view.zoom);
-      console.log(view.toMap(event));
-    })
+    this.mapService.setMapView(map, view);
+    this.shapeFileReaderService.readFile();
   }
 }
