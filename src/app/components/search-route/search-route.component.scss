@@ -1,0 +1,25 @@
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%; height: 100%;
+    background-color: whitesmoke;
+    border: 50px; border-radius: 15px;
+
+    .inputs {
+        width: 75%;
+        flex-direction: column;
+        .from {
+            width: 100%; height: 100%;
+        }
+        .to {
+            width: 100%; height: 100%;
+        }
+    }
+    .submit {
+        width: 25%;
+    }
+}
